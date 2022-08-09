@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+<script type="text/javascript">
+const RSS_URL = `https://cointelegraph.com/rss/tag/altcoin`;
+fetch(RSS_URL, {
+        method : "GET",
+        mode: 'no-cors'
+    })
+  .then(response => response.text())
+  .then(str => {
+  	console.log(str)
+  	return new window.DOMParser().parseFromString(str, "text/xml");
+  })
+  .then(data => console.log(data))
+</script>
+</body>
+</html>
